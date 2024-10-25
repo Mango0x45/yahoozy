@@ -1,0 +1,29 @@
+                       ──────────────────────────
+                         Yahoozy — Curses Yatzy
+                       ──────────────────────────
+
+Yahoozy is a curses-based TUI implementation of the popular dice game
+Yatzy.  Yatzy is very similar to the more internationally-known game
+‘Yahtzee’ and is more well known in the Nordic countries.
+
+Yahoozy is feature complete and there are no plans to update this
+repository.  This was merely a learning exercise for building interactive
+TUIs via immediate-mode UIs.
+
+The game comes with no instruction manual so you should consult the
+helpful Wikipedia page[1], but it does come with many mnemonic keyboard
+shortcuts that are documented at the bottom of each screen.
+
+Highscores are stored persistently on a per-user basis and can be found
+at the following locations depending on your operating system:
+
+    Windows    %LOCALAPPDATA%\Yahoozy\history
+    MacOS      ~/Library/Application Support/Yahoozy/history
+    POSIX      $XDG_DATA_HOME/yahoozy/history (or)
+               ~/.local/share/yahoozy/history
+
+Note that while Windows support was attempted, I don’t own a Windows
+computer and as such cannot verify that it works bug-free.
+
+
+[1]: https://en.wikipedia.org/wiki/Yatzy

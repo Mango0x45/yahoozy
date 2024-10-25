@@ -513,8 +513,8 @@ def game_loop(rs: RenderState, body_win) -> None:
 		_, x = body_win.getmaxyx()
 		x_off = x - longest - 4
 		body_win.addstr(2, x_off, THDR, curses.A_BOLD)
-		for i, line in enumerate(leaderboard):
-			body_win.addstr(3 + i, x_off, line)
+		for i, line in enumerate(leaderboard, 1):
+			body_win.addstr(2 + i, x_off, line)
 
 		# Draw the score sheet
 		xtra = 10 if picking_cat else 0
@@ -761,8 +761,8 @@ def game_end(rs: RenderState, body_win) -> None:
 		y, x = body_win.getmaxyx()
 		x_off = x - longest - 4
 		body_win.addstr(2, x_off, FINAL_TITLE, curses.A_BOLD)
-		for j, line in enumerate(leaderboard):
-			body_win.addstr(3 + j, x_off, line)
+		for j, line in enumerate(leaderboard, 1):
+			body_win.addstr(2 + j, x_off, line)
 
 		draw_top10(body_win, hist)
 

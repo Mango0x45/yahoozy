@@ -761,8 +761,8 @@ def game_end(rs: RenderState, body_win) -> None:
 		y, x = body_win.getmaxyx()
 		x_off = x - longest - 4
 		body_win.addstr(2, x_off, FINAL_TITLE, curses.A_BOLD)
-		for j, line in enumerate(leaderboard, 1):
-			body_win.addstr(2 + j, x_off, line)
+		for i, line in enumerate(leaderboard, 1):
+			body_win.addstr(2 + i, x_off, line)
 
 		draw_top10(body_win, hist)
 

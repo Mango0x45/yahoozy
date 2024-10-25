@@ -516,7 +516,8 @@ def game_loop(rs: RenderState, body_win) -> None:
 		for i, line in enumerate(leaderboard, 1):
 			body_win.addstr(2 + i, x_off, line)
 
-		# Draw the score sheet
+		# Draw the score sheet.  The following code is some absolute
+		# black-magic stuff.  Straight out of Mordor.
 		xtra = 10 if picking_cat else 0
 		body_win.addstr(
 			5, 4,
@@ -558,7 +559,6 @@ def game_loop(rs: RenderState, body_win) -> None:
 		bar = "─" * (longest_cat_name + 6 + xtra)
 		body_win.addstr(6,                 5, bar)
 		body_win.addstr(len(Category) + 7, 5, bar)
-
 		body_win.addstr(len(Category) + 8, 5, "Total".ljust(longest_cat_name))
 
 		# Align the total with the category scores (which are now shifted

@@ -781,7 +781,7 @@ def game_end(rs: RenderState, body_win) -> None:
 
 def histhandle(mode: str) -> TextIO:
 	"""Return a handle to the history file with MODE.
-	
+
 	If the history file doesn’t exist this function will create the
 	necessary directories.  This function makes sure to abide by system-
 	specific convensions.
@@ -817,7 +817,7 @@ def savehist(fp: TextIO, xs: list[LBEntry]) -> None:
 
 def loadhist(fp: TextIO, n: int = -1) -> list[LBEntry]:
 	"""Load the first N history entries from FP.
-	
+
 	If N is omitted this function returns all entries in FP.
 	"""
 	xs: list[LBEntry] = []

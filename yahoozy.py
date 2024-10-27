@@ -840,7 +840,7 @@ def checkbox(ckd: bool) -> str:
 	return "[×]" if ckd else "[ ]"
 
 
-def restore_term_settings(attrs: list) -> None:
+def restore_tcattrs(attrs: list) -> None:
 	"""Restore terminal ATTRS on program exit."""
 	fd = sys.stdin.fileno()
 	termios.tcsetattr(fd, termios.TCSANOW, attrs)
@@ -859,6 +859,6 @@ if __name__ == "__main__":
 		new_attrs[0] &= ~(termios.IXANY | termios.IXOFF | termios.IXON)
 		termios.tcsetattr(fd, termios.TCSANOW, new_attrs)
 		# Restore terminal settings on exit
-		atexit.register(restore_term_settings, old_attrs)
+		atexit.register(restore_tcattrs, old_attrs)
 
 	curses.wrapper(main)

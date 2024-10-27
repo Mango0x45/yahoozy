@@ -823,8 +823,11 @@ def loadhist(fp: TextIO, n: int = -1) -> list[LBEntry]:
 	for i in itertools.count():
 		if i == n or (line := fp.readline()) == "":
 			break
-		score, name = line.rstrip("\n").split("\x1F")
-		xs.append((int(score), name))
+		try:
+			score, name = line.rstrip("\n").split("\x1F")
+			xs.append((int(score), name))
+		except (TypeError, ValueError):
+			pass  # Corrupt entry
 	return xs
 
 

@@ -800,9 +800,8 @@ def histhandle(mode: str) -> TextIO:
 	elif os.name == "posix":
 		if (path := os.getenv("XDG_DATA_HOME")) == "":
 			assert (path := os.getenv("HOME"))
-			path = Path(path) / ".local" / "share" / "yahoozy"
-		else:
-			path = Path(path) / "yahoozy"
+			path = Path(path) / ".local" / "share"
+		path = Path(path) / "yahoozy"
 	else:
 		raise NotImplementedError(f"No history support for {os.name}")
 

@@ -291,7 +291,7 @@ class DiceState:
 		# the user has selected the die for rerolling.
 		self.rollmsk = 0
 
-	def reroll_dice(self) -> None:
+	def reroll(self) -> None:
 		"""Reroll the dice according to the reroll mask."""
 		while self.rollmsk != 0:
 			n = self.rollmsk.bit_length() - 1
@@ -705,7 +705,7 @@ def game_loop(rs: RenderState, body_win) -> None:
 				elif ds.rollmsk == 0:
 					rs.hp.diag = "No dice selected to reroll"
 				else:
-					ds.reroll_dice()
+					ds.reroll()
 			elif k == "\n" and rs.sel >= 0:
 				ds.rollmsk ^= 1 << rs.sel
 			elif k == curses.KEY_UP:
